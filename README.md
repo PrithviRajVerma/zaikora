@@ -54,20 +54,21 @@ Zaikora is a modern, full-stack restaurant and food ordering platform built usin
 - Lucide React
 
 ### Backend
-- Node.js
-- Express.js
-- TypeScript
-- MongoDB
-- Mongoose
-- JSON Web Tokens (JWT)
-- bcryptjs
+- Python 3.11+
+- FastAPI
+- Uvicorn
+- Motor (Async MongoDB)
+- Pydantic v2 & Pydantic Settings
+- Loguru (Structured logging)
+- JSON Web Tokens (JWT) / Passlib / Bcrypt
 
 ### Tools & Services
-- pnpm – Package management
+- pnpm – Monorepo workspace management
+- uv – Fast Python package & environment manager
 - Razorpay – Payment gateway
 - Cloudinary – Image storage
 - Git & GitHub – Version control
-- Postman – API testing
+- Postman / Swagger UI – API testing
 
 ---
 
@@ -91,16 +92,28 @@ zaikora/
 │       └── index.css
 │
 ├── backend/
-│   └── src/
-│       ├── config/
-│       ├── controllers/
-│       ├── middleware/
-│       ├── models/
-│       ├── routes/
-│       ├── services/
-│       ├── utils/
-│       ├── types/
-│       └── server.ts
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── v1/
+│   │   │       ├── endpoints/
+│   │   │       │   └── health.py
+│   │   │       └── router.py
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   ├── database.py
+│   │   │   └── logger.py
+│   │   ├── middlewares/
+│   │   │   └── http_logger.py
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   └── main.py
+│   ├── tests/
+│   ├── pyproject.toml
+│   ├── requirements.txt
+│   ├── package.json
+│   └── README.md
 │
 ├── pnpm-workspace.yaml
 ├── package.json
@@ -120,6 +133,7 @@ Make sure you have the following installed:
 
 - Node.js (20.19+ or 22.12+)
 - pnpm
+- Python 3.11+ (and `uv` recommended)
 - MongoDB Atlas account or local MongoDB installation
 - Git
 
@@ -238,7 +252,7 @@ Zaikora follows a modern and premium restaurant branding approach.
 - [x] Initial project setup
 - [x] pnpm workspace configuration
 - [x] React + TypeScript setup
-- [x] Express + TypeScript setup
+- [x] FastAPI + Python setup
 - [ ] Responsive homepage
 - [ ] Navbar and footer
 - [ ] Food menu and category management

@@ -17,6 +17,23 @@ coverage/
 # Vite
 frontend/.vite/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/.venv/
+.venv/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
 # TypeScript
 *.tsbuildinfo
 
